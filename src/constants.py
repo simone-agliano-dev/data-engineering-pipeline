@@ -7,9 +7,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent
 PATH_DIR = str(BASE_DIR) + DATA_FOLDER
 
 # Data processing configuration
-DATE = "2019-06-01"  # datetime.now().strftime("%Y-%m-%d")
-ALLOWED_EXTENSIONS = {"json"}
 N_BATCH_FILES = 50
+DATE = "2019-06-01"  # datetime.now().strftime("%Y-%m-%d")
 JSON_CHUNKS_SIZE = 10000
 
 # Access to Database

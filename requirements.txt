@@ -1,0 +1,4 @@
+mock==5.0.1
+mysqlclient==2.1.1
+mysql-connector-python==8.0.31
+python-decouple==3.7

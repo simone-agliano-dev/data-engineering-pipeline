@@ -1,5 +1,5 @@
 import mysql.connector
-from src.app.logging import Logs
+from app.logging import Logs
 
 logs = Logs()
 
@@ -23,17 +23,17 @@ class Database:
         return query_db(conn, query)
 
 
+# you may not need the host information for running against a mysql docker container
 def conn_db(host, database, user, password) -> list:
     try:
-        conn = mysql.connector.connect(host=host,
-                                       database=database,
-                                       user=user,
-                                       password=password)
+        conn = mysql.connector.connect(
+            host=host, database=database, user=user, password=password
+        )
 
     except Exception as e:
         conn = False
         logs.error("Error connecting to mysql")
-        print('Error connecting to Mysql', e)
+        print("Error connecting to Mysql", e)
     return conn
 
 
@@ -43,9 +43,9 @@ def query_db(conn: object, query: str) -> str:
         with conn.cursor(buffered=True) as cur:
             cur.execute(query)
             conn.commit()
+
     except Exception as e:
-        logs.error('Error query %s to Mysql')
-        print('Error query %s to Mysql with error %s' % e)
+        print("Error query {} to Mysql with error").format(query)
     finally:
         if conn.is_connected():
             conn.close()

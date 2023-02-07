@@ -1,15 +1,16 @@
-from src.app.logging import Logs
-from src.constants import JSON_CHUNKS_SIZE, PATH_DIR
+from app.logging import Logs
+from constants import JSON_CHUNKS_SIZE, PATH_DIR
 import json
+import datetime
 
 log = Logs()
 
 
-def process_files_chunks(path, filenames: list[str]) -> list:
+def process_files_chunks(path, filenames: list) -> list:
     all_data = []
     for filename in filenames:
         log.info(filename)
-        print(f'Loading fie: {filename}')
+        print(f"Loading file: {filename}")
         with open(path + filename, "r") as f:
             data = [filename]
             counter = 0
@@ -30,6 +31,6 @@ def process_files_chunks(path, filenames: list[str]) -> list:
 
 def read_json(files: list) -> list:
     # the data are related to the same day, so we need to order by clock time
-    sorted_files = sorted(files, key=lambda x: int(x.split('-')[-2]))
+    sorted_files = sorted(files, key=lambda x: int(x.split("-")[-2]))
     files_chunks = process_files_chunks(PATH_DIR, sorted_files)
     return files_chunks

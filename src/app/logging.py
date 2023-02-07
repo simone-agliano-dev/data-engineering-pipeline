@@ -3,7 +3,7 @@ import datetime
 
 
 class Logs:
-    def __int__(self):
+    def __init__(self):
         self.timestamp = datetime.datetime.now()
 
     def info(self, data: str):
