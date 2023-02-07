@@ -51,7 +51,7 @@ It basically inherits from mysql/mysql-server image. Then we need to set env var
 
 2. Run your Docker container to have a mysql server, mind to cd in the root of this project 
 
->docker build -t <image-name>:latest . 
+>docker build -t image-name:latest . 
 > 
 >docker run -dp --net=host --name=mysql_container <image-name> //you  do not need --net=host if you run it in a different host
 >
@@ -63,7 +63,9 @@ It basically inherits from mysql/mysql-server image. Then we need to set env var
 > Install mysql client : sudo apt-get install mysql 
 > 
 > mysql -h 127.0.0.1 -uroot -p
+> 
 > Use door2door
+> 
 > SELECT * FROM events
 
 ## Improvements
